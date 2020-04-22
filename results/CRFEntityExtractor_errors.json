@@ -1,0 +1,747 @@
+[
+  {
+    "text": "Que faire pour mon inscription?",
+    "entities": [
+      {
+        "start": 19,
+        "end": 30,
+        "value": "inscription",
+        "entity": "inscrire"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Comment reinitialiser mon mot de passe",
+    "entities": [
+      {
+        "start": 26,
+        "end": 38,
+        "value": "mot de passe",
+        "entity": "password"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "start": 8,
+        "end": 38,
+        "value": "reinitialiser mon mot de passe",
+        "entity": "password",
+        "confidence": 0.7924439086347173,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Mon mot de passe ne marche pas que faire?",
+    "entities": [
+      {
+        "start": 4,
+        "end": 16,
+        "value": "mot de passe",
+        "entity": "password"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "mot de passe oublié",
+    "entities": [
+      {
+        "start": 0,
+        "end": 19,
+        "value": "mot de passe oublié",
+        "entity": "password"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "start": 0,
+        "end": 12,
+        "value": "mot de passe",
+        "entity": "password",
+        "confidence": 0.8141305368200273,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Je ne recois aucun Mail apres mon inscription",
+    "entities": [
+      {
+        "start": 19,
+        "end": 23,
+        "value": "Mail",
+        "entity": "mail"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Aider moi",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "Aider",
+        "entity": "helper"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "aidez moi",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "aidez",
+        "entity": "helper"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Que savez vous du statut de mon dossier",
+    "entities": [
+      {
+        "start": 32,
+        "end": 39,
+        "value": "dossier",
+        "entity": "state"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "faire le suivi de mon dossier",
+    "entities": [
+      {
+        "start": 9,
+        "end": 14,
+        "value": "suivi",
+        "entity": "state"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Peut tu me donner des informations par rapport au concours de l'éna",
+    "entities": [
+      {
+        "start": 64,
+        "end": 67,
+        "value": "éna",
+        "entity": "concours"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "J'ai besoins d'informations par rapport au concours direct A",
+    "entities": [
+      {
+        "start": 52,
+        "end": 60,
+        "value": "direct A",
+        "entity": "concoursAll"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "J'ai besoins d'informations par rapport au concours direct B",
+    "entities": [
+      {
+        "start": 52,
+        "end": 60,
+        "value": "direct B",
+        "entity": "concoursAll"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Comment se passe le concours Professionnel A",
+    "entities": [
+      {
+        "start": 20,
+        "end": 44,
+        "value": "concours Professionnel A",
+        "entity": "concoursAll"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "start": 29,
+        "end": 44,
+        "value": "professionnel a",
+        "entity": "concoursAll",
+        "confidence": 0.6616746888179452,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Comment déposer mes dossiers pour le concours professionnel A",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "start": 46,
+        "end": 61,
+        "value": "professionnel a",
+        "entity": "concoursAll",
+        "confidence": 0.6615599623410618,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Comment se passe le concours Professionnel B",
+    "entities": [
+      {
+        "start": 20,
+        "end": 44,
+        "value": "concours Professionnel B",
+        "entity": "concoursAll"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "start": 29,
+        "end": 44,
+        "value": "professionnel b",
+        "entity": "concoursAll",
+        "confidence": 0.5875953751656862,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Salut",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "Salut",
+        "entity": "greeting"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "je veux m'inscrire",
+    "entities": [
+      {
+        "start": 10,
+        "end": 18,
+        "value": "inscrire",
+        "entity": "inscrire"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Login ne marche pas",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "login",
+        "entity": "logins",
+        "confidence": 0.8709129126471,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Quelles sont les etapes pour reinitialiser mon mot de passe",
+    "entities": [
+      {
+        "start": 29,
+        "end": 59,
+        "value": "reinitialiser mon mot de passe",
+        "entity": "password"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "start": 47,
+        "end": 59,
+        "value": "mot de passe",
+        "entity": "password",
+        "confidence": 0.9511037349077706,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "help me",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "help",
+        "entity": "helper"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "je veux faire le suivi de mon dossier",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "start": 17,
+        "end": 22,
+        "value": "suivi",
+        "entity": "state",
+        "confidence": 0.7037799606982915,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Comment déposer mes dossiers pour le concours direct A",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "start": 37,
+        "end": 54,
+        "value": "concours direct a",
+        "entity": "concoursAll",
+        "confidence": 0.5676213858000559,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "J'ai besoins d'informations par rapport au concours Professionnel A",
+    "entities": [
+      {
+        "start": 52,
+        "end": 67,
+        "value": "Professionnel A",
+        "entity": "concoursAll"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Bonjour",
+    "entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "Bonjour",
+        "entity": "greeting"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "inscription sur teledac?",
+    "entities": [
+      {
+        "start": 0,
+        "end": 11,
+        "value": "inscription",
+        "entity": "inscrire"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "login correspond a quoi",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "login",
+        "entity": "logins"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Que faire en cas d'oublie de mot de passe",
+    "entities": [
+      {
+        "start": 29,
+        "end": 41,
+        "value": "mot de passe",
+        "entity": "password"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "start": 19,
+        "end": 41,
+        "value": "oublie de mot de passe",
+        "entity": "password",
+        "confidence": 0.8267694908886509,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Je n'ai pas reçu le mail d'activation",
+    "entities": [
+      {
+        "start": 27,
+        "end": 37,
+        "value": "activation",
+        "entity": "mail"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Aide",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "Aide",
+        "entity": "helper"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "je veux de l'aide",
+    "entities": [
+      {
+        "start": 13,
+        "end": 17,
+        "value": "aide",
+        "entity": "helper"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "contact@onclickgaming.com",
+    "entities": [
+      {
+        "start": 0,
+        "end": 25,
+        "value": "contact@onclickgaming.com",
+        "entity": "email"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "0220_SN_DNAFP_00012",
+    "entities": [
+      {
+        "start": 0,
+        "end": 19,
+        "value": "0220_SN_DNAFP_00012",
+        "entity": "num_dossier"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "comment déposer mon dossier de candidature pour le concours de l'ENA",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "start": 20,
+        "end": 27,
+        "value": "dossier",
+        "entity": "state",
+        "confidence": 0.6012777379770615,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Puis-je savoir les modalités de participer au concours DIRECT A",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "start": 55,
+        "end": 63,
+        "value": "direct a",
+        "entity": "concoursAll",
+        "confidence": 0.6233248788347607,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Puis-je savoir les modalités de participer au concours DIRECT B",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "start": 55,
+        "end": 63,
+        "value": "direct b",
+        "entity": "concoursAll",
+        "confidence": 0.7656513951211943,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Comment déposer mes dossiers pour le concours direct B",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "start": 37,
+        "end": 54,
+        "value": "concours direct b",
+        "entity": "concoursAll",
+        "confidence": 0.6074396681314526,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "bonjour",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "bonjour",
+        "entity": "greeting",
+        "confidence": 0.7532481190647192,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Je veux changer mon adresse mail",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "start": 28,
+        "end": 32,
+        "value": "mail",
+        "entity": "mail",
+        "confidence": 0.6646995842143202,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "mot de passe oublie",
+    "entities": [
+      {
+        "start": 0,
+        "end": 19,
+        "value": "mot de passe oublie",
+        "entity": "password"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "start": 0,
+        "end": 12,
+        "value": "mot de passe",
+        "entity": "password",
+        "confidence": 0.9318567259836259,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Je veux changer mon mot de passe",
+    "entities": [
+      {
+        "start": 8,
+        "end": 32,
+        "value": "changer mon mot de passe",
+        "entity": "password"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "start": 20,
+        "end": 32,
+        "value": "mot de passe",
+        "entity": "password",
+        "confidence": 0.9642655523059006,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "776342517",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "776342517",
+        "entity": "num_tel"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "JOHN Doe",
+    "entities": [
+      {
+        "start": 0,
+        "end": 8,
+        "value": "JOHN Doe",
+        "entity": "prenom_nom"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Comment se déroule le concours de l'ena",
+    "entities": [
+      {
+        "start": 36,
+        "end": 39,
+        "value": "ena",
+        "entity": "concours"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "J'ai besoins d'informations par rapport au concours Professionnel B",
+    "entities": [
+      {
+        "start": 52,
+        "end": 67,
+        "value": "Professionnel B",
+        "entity": "concoursAll"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "oublie mot de passe",
+    "entities": [
+      {
+        "start": 0,
+        "end": 19,
+        "value": "oublie mot de passe",
+        "entity": "password"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "start": 7,
+        "end": 19,
+        "value": "mot de passe",
+        "entity": "password",
+        "confidence": 0.962254984401247,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Modification de mot de passe",
+    "entities": [
+      {
+        "start": 0,
+        "end": 28,
+        "value": "Modification de mot de passe",
+        "entity": "password"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "start": 16,
+        "end": 28,
+        "value": "mot de passe",
+        "entity": "password",
+        "confidence": 0.9760132119738751,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "mail de confirmation",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "mail",
+        "entity": "mail"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "start": 0,
+        "end": 20,
+        "value": "mail de confirmation",
+        "entity": "mail",
+        "confidence": 0.911669351392508,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Quel est l'etat de mon dossier",
+    "entities": [
+      {
+        "start": 11,
+        "end": 15,
+        "value": "etat",
+        "entity": "state"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "j'aimerais avoir des informations par rapport aux concours de l'ENA",
+    "entities": [
+      {
+        "start": 50,
+        "end": 58,
+        "value": "concours",
+        "entity": "concours"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Comment se passe le concours direct A",
+    "entities": [
+      {
+        "start": 20,
+        "end": 37,
+        "value": "concours direct A",
+        "entity": "concoursAll"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Comment se passe le concours direct B",
+    "entities": [
+      {
+        "start": 20,
+        "end": 37,
+        "value": "concours direct B",
+        "entity": "concoursAll"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Comment déposer mes dossiers pour le concours professionnel B",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "start": 37,
+        "end": 61,
+        "value": "concours professionnel b",
+        "entity": "concoursAll",
+        "confidence": 0.6098461520852451,
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  }
+]

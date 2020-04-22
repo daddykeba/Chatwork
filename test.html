@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Rasa Core Visualisation</title>
+    <script src="https://dagrejs.github.io/project/dagre-d3/latest/dagre-d3.min.js"></script>
+    <script src="https://dagrejs.github.io/project/dagre/latest/dagre.min.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://dagrejs.github.io/project/graphlib-dot/v0.6.3/graphlib-dot.js"></script>
+</head>
+<body>
+<div id="errormsg" style="color: #b00"></div>
+<svg>
+    <style>
+        .node.invisible > rect {
+            display: none;
+        }
+
+        .node.start > rect {
+            fill: #7f7;
+            rx: 30;
+            ry: 18;
+        }
+
+        .node.end > rect {
+            fill: #f77;
+            rx: 30;
+            ry: 18;
+        }
+
+        .node:not(.active) > rect, .node:not(.active) > .label {
+            opacity: 0.4;
+        }
+
+        .edgePath:not(.active) path {
+            opacity: 0.4;
+        }
+
+        .node.ellipsis > rect {
+            fill: #CCC;
+        }
+
+        .node.intent > rect {
+            fill: #7ff;
+        }
+
+        .node.dashed > rect {
+            stroke-dasharray: 5;
+        }
+
+        text {
+            font-weight: 300;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serf, serif;
+            font-size: 14px;
+            color: #1f1d1d;
+        }
+
+        .node rect {
+            stroke: #444;
+            fill: #fff;
+            stroke-width: 1.5px;
+        }
+
+        .edgePath path {
+            stroke: #333;
+            stroke-width: 1.5px;
+        }
+
+        svg {
+            position: fixed;
+            top: 10px;
+            left: 0;
+            height: 100%;
+            width: 100%
+        }
+    </style>
+    <g></g>
+</svg>
+<script>
+
+  function serveGraph() {
+    let oldInputGraphValue;
+
+    const url = 'visualization.dot';
+    const refreshInterval = 500;
+
+    // trigger a refresh by fetching an updated graph
+    setInterval(function () {
+      fetch(url).then(r => r.text()).then(dot => {
+        document.getElementById('errormsg').innerHTML = '';
+        if (oldInputGraphValue === dot) return;
+
+        oldInputGraphValue = dot;
+        drawGraph(dot);
+      }).catch(err => {
+        document.getElementById('errormsg').innerHTML =
+          'Failed to update plot. (' + err.message + ')';
+      });
+    }, refreshInterval);
+  }
+
+  function drawGraph(graph) {
+    let g = graphlibDot.read(graph);
+    // Set margins, if not present
+    if (!g.graph().hasOwnProperty("marginx") &&
+      !g.graph().hasOwnProperty("marginy")) {
+      g.graph().marginx = 20;
+      g.graph().marginy = 20;
+    }
+    g.graph().transition = function (selection) {
+      return selection.transition().duration(300);
+    };
+    // Render the graph into svg g
+    d3.select("svg g").call(render, g);
+  }
+  // Set up zoom support
+  const svg = d3.select("svg"),
+    inner = d3.select("svg g"),
+    zoom = d3.zoom().on("zoom", function () {
+      inner.attr("transform", d3.event.transform);
+    });
+  svg.call(zoom);
+
+  // Create and configure the renderer
+  const render = dagreD3.render();
+
+  let isClient = false;
+  isClient = true;
+
+  if (isClient) {
+    // Mark all nodes and their edges as active
+    cssRules = document.styleSheets[0].cssRules;
+    cssRules[3].style.opacity = 1;
+    cssRules[4].style.opacity = 1;
+
+    let graph;
+    graph = `digraph  {
+0 [class="start active", fillcolor=green, fontsize=12, label=START, style=filled];
+"-1" [class=end, fillcolor=red, fontsize=12, label=END, style=filled];
+1 [class="", fontsize=12, label=utter_greet];
+2 [class="", fontsize=12, label=utter_ask_connexion];
+3 [class="", fontsize=12, label=utter_call_back];
+4 [class="", fontsize=12, label=utter_ask_login];
+5 [class="", fontsize=12, label=utter_call_back];
+6 [class="", fontsize=12, label=utter_goodbye];
+22 [class="", fontsize=12, label=action_set_path];
+23 [class="", fontsize=12, label=utter_other_faq];
+34 [class="", fontsize=12, label=utter_process_status];
+35 [class="", fontsize=12, label=find_folder_form];
+40 [class="", fontsize=12, label=utter_call_back];
+49 [class="", fontsize=12, label=utter_call_back];
+50 [class="", fontsize=12, label=action_inscription_teledac];
+69 [class="", fontsize=12, label=find_folder_form];
+70 [class="", fontsize=12, label=utter_ask_continue];
+71 [class="", fontsize=12, label=action_deactivate_form];
+82 [class="", fontsize=12, label=find_folder_form];
+98 [class="", fontsize=12, label=find_folder_form];
+194 [class="", fontsize=12, label=utter_ask_continue];
+199 [class="", fontsize=12, label=action_inscription_teledac];
+200 [class="", fontsize=12, label=respond_chat];
+202 [class="", fontsize=12, label=action_path];
+204 [class="", fontsize=12, label=action_concours_da];
+205 [class="", fontsize=12, label=utter_admis];
+207 [class="", fontsize=12, label=action_inscription_check];
+210 [class="", fontsize=12, label=utter_incrire_ena];
+211 [class="", fontsize=12, label=action_inscription_ena];
+213 [class="", fontsize=12, label=action_hello_world];
+219 [class="", fontsize=12, label=action_inscription_ena];
+220 [class="", fontsize=12, label=action_pay];
+225 [class="", fontsize=12, label=utter_pay_ena];
+227 [class="", fontsize=12, label=action_pay];
+233 [class="", fontsize=12, label=utter_require_ena];
+236 [class="", fontsize=12, label=action_require];
+240 [class="", fontsize=12, label=action_require];
+254 [class="", fontsize=12, label=action_password];
+255 [class="", fontsize=12, label=utter_menu_mdp];
+257 [class="", fontsize=12, label=action_choice_profile];
+259 [class="", fontsize=12, label=action_profile];
+261 [class="", fontsize=12, label=utter_menu_profile];
+265 [class="", fontsize=12, label=utter_choice_plateform];
+266 [class="", fontsize=12, label=action_choice_profile];
+270 [class="", fontsize=12, label=action_mail];
+271 [class="", fontsize=12, label=utter_plateforme_mailconfirm];
+277 [class="", fontsize=12, label=action_connexion];
+279 [class="", fontsize=12, label=utter_plateforme_connexion];
+284 [class=intent, fillcolor=lightblue, label=Bjr, shape=rect, style=filled];
+285 [class=intent, fillcolor=lightblue, label="je veux m'inscrire sur le concours de professionnel a l'ena", shape=rect, style=filled];
+286 [class=intent, fillcolor=lightblue, label="C'est chiant", shape=rect, style=filled];
+287 [class=intent, fillcolor=lightblue, label="Qui es tu?", shape=rect, style=filled];
+288 [class=intent, fillcolor=lightblue, label="donne moi les différents concours", shape=rect, style=filled];
+289 [class=intent, fillcolor=lightblue, label="Comment savoir si je suis éligible au concours direct a", shape=rect, style=filled];
+290 [class=intent, fillcolor=lightblue, label="je veux m'inscrire sur le concours de cycle b l'ena", shape=rect, style=filled];
+291 [class=intent, fillcolor=lightblue, label="/out_of_scope", shape=rect, style=filled];
+292 [class=intent, fillcolor=lightblue, label="je veux m'inscrire sur le concours de direct a l'ena", shape=rect, style=filled];
+293 [class=intent, fillcolor=lightblue, label="le montant des frais au concours cycle b", shape=rect, style=filled];
+294 [class=intent, fillcolor=lightblue, label="/pay_concours{\\"pay\\":\\"frais\\", \\"path\\":\\"ena\\", \\"concoursAll\\":\\"direct a\\"}", shape=rect, style=filled];
+295 [class=intent, fillcolor=lightblue, label="quelles sont les conditions d'accés au concours professionnel b", shape=rect, style=filled];
+296 [class=intent, fillcolor=lightblue, label="/requirement_concours{\\"requirement\\":\\"conditions\\", \\"path\\":\\"ena\\", \\"concoursAll\\":\\"direct a\\"}", shape=rect, style=filled];
+297 [class=intent, fillcolor=lightblue, label="Je veux modifier mon mot de passe teledac", shape=rect, style=filled];
+298 [class=intent, fillcolor=lightblue, label="Je veux modifier mon mot de passe ena", shape=rect, style=filled];
+299 [class=intent, fillcolor=lightblue, label="modifier teledac", shape=rect, style=filled];
+300 [class=intent, fillcolor=lightblue, label="/profile{\\"path\\":\\"teledac\\", \\"modifie\\":\\"modifier\\", \\"attributeProfile\\":\\"nom\\"}", shape=rect, style=filled];
+301 [class=intent, fillcolor=lightblue, label="Il y a une erreur sur mon profile, le prenom n'est pas correct", shape=rect, style=filled];
+302 [class=intent, fillcolor=lightblue, label="En ce qui concerne mon profil , comment modifier les informations", shape=rect, style=filled];
+303 [class=intent, fillcolor=lightblue, label="/confirmMail{\\"path\\":\\"teledac\\", \\"mail\\":\\"mail de confirmation\\"}", shape=rect, style=filled];
+304 [class=intent, fillcolor=lightblue, label="Ou es le mail de confirmation", shape=rect, style=filled];
+305 [class=intent, fillcolor=lightblue, label="Se connecter a son compte teledac", shape=rect, style=filled];
+306 [class=intent, fillcolor=lightblue, label="Se connecter a son compte ena", shape=rect, style=filled];
+307 [class=intent, fillcolor=lightblue, label="Je n'arrive pas à me connecter", shape=rect, style=filled];
+308 [class=intent, fillcolor=lightblue, label="Je ne comprends pas le champ login", shape=rect, style=filled];
+309 [class=intent, fillcolor=lightblue, label="euh merci au revoir", shape=rect, style=filled];
+310 [class=intent, fillcolor=lightblue, label=Aide, shape=rect, style=filled];
+311 [class=intent, fillcolor=lightblue, label="état", shape=rect, style=filled];
+312 [class=intent, fillcolor=lightblue, label="comment s'inscrire sur teledac?", shape=rect, style=filled];
+313 [class=intent, fillcolor=lightblue, label="je veux m'inscrire sur le concours de direct a l'ena", shape=rect, style=filled];
+314 [class=intent, fillcolor=lightblue, label="/pay_concours{\\"pay\\":\\"frais\\", \\"path\\":\\"ena\\", \\"concoursAll\\":\\"direct a\\"}", shape=rect, style=filled];
+315 [class=intent, fillcolor=lightblue, label="Comment se connecter a mon compte", shape=rect, style=filled];
+316 [class=intent, fillcolor=lightblue, label="help me", shape=rect, style=filled];
+317 [class=intent, fillcolor=lightblue, label="quel est l'état de mon dossier", shape=rect, style=filled];
+318 [class=intent, fillcolor=lightblue, label="je veux m'inscrire sur le concours de direct b l'ena", shape=rect, style=filled];
+319 [class=intent, fillcolor=lightblue, label="/requirement_concours{\\"requirement\\":\\"conditions\\", \\"path\\":\\"ena\\", \\"concoursAll\\":\\"direct a\\"}", shape=rect, style=filled];
+320 [class=intent, fillcolor=lightblue, label="Que faut il mettre dans le champ login", shape=rect, style=filled];
+321 [class=intent, fillcolor=lightblue, label="see you later", shape=rect, style=filled];
+322 [class=intent, fillcolor=lightblue, label="je veux m'inscrire sur le concours de direct b l'ena", shape=rect, style=filled];
+323 [class=intent, fillcolor=lightblue, label="je veux m'inscrire sur le concours de direct a l'ena", shape=rect, style=filled];
+324 [class=intent, fillcolor=lightblue, label="/pay_concours{\\"pay\\":\\"frais\\", \\"path\\":\\"ena\\", \\"concoursAll\\":\\"direct a\\"}", shape=rect, style=filled];
+325 [class=intent, fillcolor=lightblue, label="Je ne comprends pas le champ login", shape=rect, style=filled];
+326 [class=intent, fillcolor=lightblue, label="A la prochaine", shape=rect, style=filled];
+327 [class=intent, fillcolor=lightblue, label="see you later", shape=rect, style=filled];
+328 [class=intent, fillcolor=lightblue, label="comment savoir si ma demande a été prise en compte", shape=rect, style=filled];
+329 [class=intent, fillcolor=lightblue, label="et c'est tout merci et au revoir", shape=rect, style=filled];
+330 [class=intent, fillcolor=lightblue, label="et c'est tout merci et au revoir", shape=rect, style=filled];
+331 [class=intent, fillcolor=lightblue, label="je m'ennuie", shape=rect, style=filled];
+332 [class=intent, fillcolor=lightblue, label=dossier, shape=rect, style=filled];
+333 [class=intent, fillcolor=lightblue, label="comment savoir si ma demande a été prise en compte", shape=rect, style=filled];
+334 [class=intent, fillcolor=lightblue, label=no, shape=rect, style=filled];
+335 [class=intent, fillcolor=lightblue, label=yes, shape=rect, style=filled];
+336 [class=intent, fillcolor=lightblue, label=oui, shape=rect, style=filled];
+337 [class=intent, fillcolor=lightblue, label="quel est l'état de mon dossier", shape=rect, style=filled];
+338 [class=intent, fillcolor=lightblue, label="je veux faire le suivi de mon dossier", shape=rect, style=filled];
+339 [class=intent, fillcolor=lightblue, label="faire le suivi de mon dossier", shape=rect, style=filled];
+340 [class=intent, fillcolor=lightblue, label="c'est de la merde, tu ne m'aides pas", shape=rect, style=filled];
+341 [class=intent, fillcolor=lightblue, label=non, shape=rect, style=filled];
+342 [class=intent, fillcolor=lightblue, label=oui, shape=rect, style=filled];
+343 [class=intent, fillcolor=lightblue, label="comment s'inscrire sur teledac?", shape=rect, style=filled];
+344 [class=intent, fillcolor=lightblue, label="/menu_inscrire_ena", shape=rect, style=filled];
+345 [class=intent, fillcolor=lightblue, label="je veux m'inscrire sur le concours de direct a l'ena", shape=rect, style=filled];
+346 [class=intent, fillcolor=lightblue, label=frais, shape=rect, style=filled];
+347 [class=intent, fillcolor=lightblue, label="je veux m'inscrire", shape=rect, style=filled];
+348 [class=intent, fillcolor=lightblue, label="comment s'inscrire au concours professionnel a", shape=rect, style=filled];
+349 [class=intent, fillcolor=lightblue, label="comment puis-je m'inscrire?", shape=rect, style=filled];
+350 [class=intent, fillcolor=lightblue, label="Je veux modifier mon mot de passe teledac", shape=rect, style=filled];
+351 [class=intent, fillcolor=lightblue, label="Je veux modifier mon mot de passe teledac", shape=rect, style=filled];
+352 [class=intent, fillcolor=lightblue, label="/profile{\\"path\\":\\"teledac\\", \\"modifie\\":\\"modifier\\", \\"profile\\":\\"profil\\"}", shape=rect, style=filled];
+353 [class=intent, fillcolor=lightblue, label="/profile{\\"path\\":\\"teledac\\", \\"modifie\\":\\"modifier\\", \\"profile\\":\\"profil\\"}", shape=rect, style=filled];
+354 [class=intent, fillcolor=lightblue, label="je voudrais modifier ma date de naissance sur teledac", shape=rect, style=filled];
+355 [class=intent, fillcolor=lightblue, label="/profile{\\"path\\":\\"teledac\\", \\"modifie\\":\\"modifier\\", \\"profile\\":\\"profil\\"}", shape=rect, style=filled];
+356 [class=intent, fillcolor=lightblue, label="/confirmMail{\\"path\\":\\"teledac\\", \\"inscrire\\":\\"compte\\", \\"connexions\\":\\"connecter\\"}", shape=rect, style=filled];
+357 [class=intent, fillcolor=lightblue, label="Se connecter a son compte teledac", shape=rect, style=filled];
+0 -> 284  [class="", key=0];
+0 -> 285  [class="", key=0];
+0 -> 286  [class="", key=0];
+0 -> 287  [class="", key=0];
+0 -> 288  [class="", key=0];
+0 -> 289  [class="", key=0];
+0 -> 290  [class="", key=0];
+0 -> 291  [class="", key=0];
+0 -> 292  [class="", key=0];
+0 -> 293  [class="", key=0];
+0 -> 294  [class="", key=0];
+0 -> 295  [class="", key=0];
+0 -> 296  [class="", key=0];
+0 -> 297  [class="", key=0];
+0 -> 298  [class="", key=0];
+0 -> 299  [class="", key=0];
+0 -> 300  [class="", key=0];
+0 -> 301  [class="", key=0];
+0 -> 302  [class="", key=0];
+0 -> 303  [class="", key=0];
+0 -> 304  [class="", key=0];
+0 -> 305  [class="", key=0];
+0 -> 306  [class="", key=0];
+0 -> 307  [class="", key=0];
+0 -> 308  [class="", key=0];
+0 -> 309  [class="", key=0];
+0 -> 310  [class="", key=0];
+0 -> 311  [class="", key=0];
+0 -> 312  [class="", key=0];
+0 -> 313  [class="", key=0];
+0 -> 314  [class="", key=0];
+1 -> "-1"  [class="", key=NONE, label=""];
+1 -> 315  [class="", key=0];
+1 -> 316  [class="", key=0];
+1 -> 317  [class="", key=0];
+1 -> 318  [class="", key=0];
+1 -> 319  [class="", key=0];
+1 -> 320  [class="", key=0];
+1 -> 321  [class="", key=0];
+1 -> 322  [class="", key=0];
+1 -> 323  [class="", key=0];
+1 -> 324  [class="", key=0];
+2 -> 3  [class="", key=NONE, label=""];
+3 -> 325  [class="", key=0];
+4 -> 5  [class="", key=NONE, label=""];
+5 -> "-1"  [class="", key=NONE, label=""];
+5 -> 326  [class="", key=0];
+6 -> "-1"  [class="", key=NONE, label=""];
+22 -> 23  [class="", key=NONE, label=""];
+23 -> "-1"  [class="", key=NONE, label=""];
+23 -> 327  [class="", key=0];
+34 -> 35  [class="", key=NONE, label=""];
+34 -> 69  [class="", key=NONE, label=""];
+35 -> 40  [class="", key=NONE, label=""];
+35 -> 49  [class="", key=NONE, label=""];
+35 -> 328  [class="", key=0];
+40 -> 329  [class="", key=0];
+49 -> "-1"  [class="", key=NONE, label=""];
+50 -> 330  [class="", key=0];
+69 -> 331  [class="", key=0];
+69 -> 332  [class="", key=0];
+69 -> 333  [class="", key=0];
+70 -> 334  [class="", key=0];
+70 -> 335  [class="", key=0];
+70 -> 336  [class="", key=0];
+71 -> 49  [class="", key=NONE, label=""];
+82 -> 337  [class="", key=0];
+82 -> 338  [class="", key=0];
+82 -> 339  [class="", key=0];
+98 -> 340  [class="", key=0];
+194 -> 341  [class="", key=0];
+194 -> 342  [class="", key=0];
+199 -> "-1"  [class="", key=NONE, label=""];
+200 -> 49  [class="", key=NONE, label=""];
+202 -> "-1"  [class="", key=NONE, label=""];
+204 -> 205  [class="", key=NONE, label=""];
+205 -> "-1"  [class="", key=NONE, label=""];
+207 -> 343  [class="", key=0];
+207 -> 344  [class="", key=0];
+210 -> 345  [class="", key=0];
+211 -> "-1"  [class="", key=NONE, label=""];
+213 -> "-1"  [class="", key=NONE, label=""];
+219 -> 346  [class="", key=0];
+220 -> "-1"  [class="", key=NONE, label=""];
+225 -> "-1"  [class="", key=NONE, label=""];
+227 -> 347  [class="", key=0];
+233 -> "-1"  [class="", key=NONE, label=""];
+236 -> "-1"  [class="", key=NONE, label=""];
+236 -> 348  [class="", key=0];
+240 -> 349  [class="", key=0];
+254 -> "-1"  [class="", key=NONE, label=""];
+255 -> 350  [class="", key=0];
+257 -> 351  [class="", key=0];
+257 -> 352  [class="", key=0];
+259 -> "-1"  [class="", key=NONE, label=""];
+261 -> 353  [class="", key=0];
+265 -> 354  [class="", key=0];
+266 -> 355  [class="", key=0];
+270 -> "-1"  [class="", key=NONE, label=""];
+271 -> 356  [class="", key=0];
+277 -> "-1"  [class="", key=NONE, label=""];
+279 -> 357  [class="", key=0];
+284 -> 1  [class="", key=0];
+285 -> 50  [class="", key=0];
+286 -> 194  [class="", key=0];
+287 -> 200  [class="", key=0];
+288 -> 202  [class="", key=0];
+289 -> 204  [class="", key=0];
+290 -> 207  [class="", key=0];
+291 -> 213  [class="", key=0];
+292 -> 219  [class="", key=0];
+293 -> 225  [class="", key=0];
+294 -> 227  [class="", key=0];
+295 -> 233  [class="", key=0];
+296 -> 236  [class="", key=0];
+297 -> 254  [class="", key=0];
+298 -> 255  [class="", key=0];
+299 -> 257  [class="", key=0];
+300 -> 259  [class="", key=0];
+301 -> 261  [class="", key=0];
+302 -> 265  [class="", key=0];
+303 -> 270  [class="", key=0];
+304 -> 271  [class="", key=0];
+305 -> 277  [class="", key=0];
+306 -> 279  [class="", key=0];
+307 -> 2  [class="", key=0];
+308 -> 4  [class="", key=0];
+309 -> 6  [class="", key=0];
+310 -> 22  [class="", key=0];
+311 -> 34  [class="", key=0];
+312 -> 199  [class="", key=0];
+313 -> 211  [class="", key=0];
+314 -> 220  [class="", key=0];
+315 -> 2  [class="", key=0];
+316 -> 22  [class="", key=0];
+317 -> 34  [class="", key=0];
+318 -> 199  [class="", key=0];
+319 -> 240  [class="", key=0];
+320 -> 4  [class="", key=0];
+321 -> 6  [class="", key=0];
+322 -> 50  [class="", key=0];
+323 -> 219  [class="", key=0];
+324 -> 227  [class="", key=0];
+325 -> 4  [class="", key=0];
+326 -> 6  [class="", key=0];
+327 -> 6  [class="", key=0];
+328 -> 35  [class="", key=0];
+329 -> 6  [class="", key=0];
+330 -> 6  [class="", key=0];
+331 -> 70  [class="", key=0];
+332 -> 98  [class="", key=0];
+333 -> 82  [class="", key=0];
+334 -> 71  [class="", key=0];
+335 -> 82  [class="", key=0];
+336 -> 35  [class="", key=0];
+337 -> 82  [class="", key=0];
+338 -> 98  [class="", key=0];
+339 -> 35  [class="", key=0];
+340 -> 70  [class="", key=0];
+341 -> 49  [class="", key=0];
+342 -> 49  [class="", key=0];
+343 -> 199  [class="", key=0];
+344 -> 210  [class="", key=0];
+345 -> 211  [class="", key=0];
+346 -> 220  [class="", key=0];
+347 -> 211  [class="", key=0];
+348 -> 211  [class="", key=0];
+349 -> 211  [class="", key=0];
+350 -> 254  [class="", key=0];
+351 -> 254  [class="", key=0];
+352 -> 259  [class="", key=0];
+353 -> 259  [class="", key=0];
+354 -> 266  [class="", key=0];
+355 -> 259  [class="", key=0];
+356 -> 270  [class="", key=0];
+357 -> 277  [class="", key=0];
+}
+`;
+    drawGraph(graph);
+  } else {
+    serveGraph();
+  }
+
+
+</script>
+</body>
+</html>

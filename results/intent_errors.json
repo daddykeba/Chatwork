@@ -1,0 +1,274 @@
+[
+  {
+    "text": "Que faire pour mon inscription?",
+    "intent": "inscription",
+    "intent_prediction": {
+      "name": "profile",
+      "confidence": 0.9538596272468567
+    }
+  },
+  {
+    "text": "Mon mot de passe ne marche pas que faire?",
+    "intent": "mdp",
+    "intent_prediction": {
+      "name": "login",
+      "confidence": 0.483176052570343
+    }
+  },
+  {
+    "text": "Je ne recois aucun Mail apres mon inscription",
+    "intent": "confirmMail",
+    "intent_prediction": {
+      "name": "profile",
+      "confidence": 0.47002413868904114
+    }
+  },
+  {
+    "text": "Aider moi",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.2994975745677948
+    }
+  },
+  {
+    "text": "je suis perdu",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.5677570700645447
+    }
+  },
+  {
+    "text": "aidez moi",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.2994975745677948
+    }
+  },
+  {
+    "text": "je m'ennuie",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "inscription",
+      "confidence": 0.5046789646148682
+    }
+  },
+  {
+    "text": "Merci",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.32379424571990967
+    }
+  },
+  {
+    "text": "et c'est tout merci et au revoir",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.9967964291572571
+    }
+  },
+  {
+    "text": "je veux m'inscrire",
+    "intent": "inscription",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.8434879183769226
+    }
+  },
+  {
+    "text": "Corriger les informations de mon inscription",
+    "intent": "profile",
+    "intent_prediction": {
+      "name": "inscription",
+      "confidence": 0.31506630778312683
+    }
+  },
+  {
+    "text": "Je ne comprends pas le champ login",
+    "intent": "login",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.6062415242195129
+    }
+  },
+  {
+    "text": "Login ne marche pas",
+    "intent": "login",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.46318042278289795
+    }
+  },
+  {
+    "text": "help me",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.7070926427841187
+    }
+  },
+  {
+    "text": "Qu'es-ce que tu fais?",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "login",
+      "confidence": 0.4269334673881531
+    }
+  },
+  {
+    "text": "obtenez-vous quelque chose?",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.4867347776889801
+    }
+  },
+  {
+    "text": "A la prochaine",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "get_info_concours",
+      "confidence": 0.15989522635936737
+    }
+  },
+  {
+    "text": "je vous remercie",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.5834589004516602
+    }
+  },
+  {
+    "text": "profile",
+    "intent": "profile",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.32118573784828186
+    }
+  },
+  {
+    "text": "Aide",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.5869941115379333
+    }
+  },
+  {
+    "text": "je veux de l'aide",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "get_info_concours",
+      "confidence": 0.15412379801273346
+    }
+  },
+  {
+    "text": "je ne sais pas",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.3587174713611603
+    }
+  },
+  {
+    "text": "contact@onclickgaming.com",
+    "intent": "statusFolder",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.5869941115379333
+    }
+  },
+  {
+    "text": "0220_SN_DNAFP_00012",
+    "intent": "statusFolder",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.5869941115379333
+    }
+  },
+  {
+    "text": "cela ne mène à rien",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.22911611199378967
+    }
+  },
+  {
+    "text": "rien d'autre?",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.7177825570106506
+    }
+  },
+  {
+    "text": "goodbye",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.3641320765018463
+    }
+  },
+  {
+    "text": "Je veux changer mon adresse mail",
+    "intent": "profile",
+    "intent_prediction": {
+      "name": "confirmMail",
+      "confidence": 0.3869125247001648
+    }
+  },
+  {
+    "text": "Que faire d'autre",
+    "intent": "help",
+    "intent_prediction": {
+      "name": "stop",
+      "confidence": 0.2287648618221283
+    }
+  },
+  {
+    "text": "776342517",
+    "intent": "statusFolder",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.3641320765018463
+    }
+  },
+  {
+    "text": "JOHN Doe",
+    "intent": "statusFolder",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.3641320765018463
+    }
+  },
+  {
+    "text": "je suis fatiqué",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "help",
+      "confidence": 0.7183208465576172
+    }
+  },
+  {
+    "text": "Arrêtez",
+    "intent": "stop",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.265193909406662
+    }
+  },
+  {
+    "text": "bye",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.3081129193305969
+    }
+  }
+]

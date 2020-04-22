@@ -1,0 +1,28 @@
+language: fr
+pipeline:
+- name: SpacyNLP
+  case_sensitive: false
+- name: SpacyTokenizer
+- name: CountVectorsFeaturizer
+- name: SpacyFeaturizer
+- name: RegexFeaturizer
+- name: CRFEntityExtractor
+  max_iterations: 100
+- name: EntitySynonymMapper
+- name: EmbeddingIntentClassifier
+  droprate: 0.15
+  epochs: 400
+- name: ResponseSelector
+policies:
+- name: MemoizationPolicy
+- name: FormPolicy
+- name: EmbeddingPolicy
+  num_transformer_layers: 10
+  droprate_a: 0.2
+  droprate_b: 0.2
+  epochs: 30
+- name: MappingPolicy
+- name: FallbackPolicy
+  nlu_threshold: 0.5
+  core_threshold: 0.3
+  fallback_action_name: my_fallback_action

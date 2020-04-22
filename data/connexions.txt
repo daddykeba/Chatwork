@@ -1,0 +1,4 @@
+- connecter
+- connection
+- connexion
+- connect

@@ -1,0 +1,16 @@
+- nom
+- prenom
+- genre
+- profession
+- email
+- téléphone fixe
+- telephone
+- date de naissance
+- lieu de naissance
+- telephone mobile
+- pays
+- region
+- type pièce d'identité
+- numéro pièce d'identité
+- adresse
+- copie pièce d'identité nationale

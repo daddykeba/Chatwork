@@ -1,0 +1,597 @@
+session_config:
+  session_expiration_time: 60.0
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- inscription
+- profile
+- login
+- mdp
+- confirmMail
+- connexion
+- help
+- prenomNom
+- numDossier
+- email
+- numTel
+- stop
+- deny
+- affirm
+- statusFolder
+- chat
+- get_path
+- get_concours_all
+- requirement_concours
+- inscription_concours_ena
+- pay_concours
+- depot_concours_all
+- menu_inscrire_ena
+- out_of_scope:
+    triggers: action_hello_world
+- chat/ask_adie
+- chat/ask_who_are_you
+- chat/ask_what_is_teledac
+entities:
+- connexions
+- email
+- greeting
+- helper
+- inscrire
+- logins
+- mail
+- num_dossier
+- num_tel
+- password
+- prenom_nom
+- profile
+- state
+- concours
+- concoursAll
+- path
+- choix
+- pay
+- requirement
+- open
+- modifie
+- attributeProfile
+slots:
+  attributeProfile:
+    type: unfeaturized
+  choix:
+    type: unfeaturized
+  concours:
+    type: unfeaturized
+  concoursAll:
+    type: unfeaturized
+  email:
+    type: unfeaturized
+  inscrire:
+    type: unfeaturized
+  modifie:
+    type: unfeaturized
+  num_dossier:
+    type: unfeaturized
+  num_tel:
+    type: unfeaturized
+  open:
+    type: unfeaturized
+  path:
+    type: unfeaturized
+  pay:
+    type: unfeaturized
+  prenom_nom:
+    type: unfeaturized
+  profile:
+    type: unfeaturized
+  requested_slot:
+    type: unfeaturized
+  requirement:
+    type: unfeaturized
+  state:
+    type: text
+templates:
+  utter_greet:
+  - text: Bonjour! Que désirez vous?
+    buttons:
+    - title: Menu
+      payload: /help
+  utter_greet_name:
+  - text: ''
+  - text: ''
+  - text: ''
+  utter_goodbye:
+  - text: Au revoir et a la prochaine
+  - text: TeleDac vous remercie de votre patience
+  utter_iamabot:
+  - text: Salut, je m'appelle <b>Anta</b> <br/> Je suis votre assistante virtuelle,
+      chargé de répondre à toutes les questions relatives à TéléDAC (inscription,
+      suivie de dossier, modifier son profil...)
+  utter_ask_inscription:
+  - text: Pour s'inscrire aller a cette renseigner tous les champs et validez.
+  - text: " L'inscription se passe en 3 etapes"
+  utter_ask_profile:
+  - text: Le profile contient tous les informations se rapportant a vous
+  - text: Pour acceder a votre profile veuillez vous authentifier
+  utter_ask_login:
+  - text: Login designe votre identifiant de connexion.Il doit contenir au moins 5
+      caracteres. Exemple A.ndiaye20
+  - text: ' Login represente votre pseudonyme '
+  utter_ask_connexion:
+  - text: ' Pour se connecter entrer les informations login et mot de passe  dans
+      les champs'
+  - text: " La connexion a Teledac requiert l'insertion du login et du mot de passe\
+      \ renseigne a l'inscription"
+  utter_ask_passwd:
+  - text: En cas d'oubli de mot de passe faites une demande de reinitialisation <a
+      href="https://teledac.sec.gouv.sn/#/recup_password/saisir_email" target="blank">Clicker
+      ici</a>
+  - text: Ne vous inquitez point demandez une reinitialisation de votre mot de passe
+      <a href="https://teledac.sec.gouv.sn/#/recup_password/saisir_email" target="blank">Clicker
+      ici</a>
+  utter_ask_confirmMail:
+  - text: ' Merci de vérifier dans vos spams, sinon demander un renvoi de mail de
+      confirmation.'
+  - text: Veuillez verifiez dans vos spams sinon demandez un nouvel envoi
+  - text: " Priez consulter votre messagerie electronique au cas demandez un nouvel\
+      \ envoi  ou bien dans le cas contraire jettez un coup d'oeil a vos spams"
+  utter_ask_rephrase:
+  - text: Désolé, je ne suis pas sûr de comprendre. Pouvez-vous reformuler ou consulter
+      le menu?
+    buttons:
+    - title: Menu
+      payload: /help
+  - text: Pouvez-vous reformuler, je ne l'ai pas compris. Pouvez-vous reformuler ou
+      consulter le menu?
+    buttons:
+    - title: Menu
+      payload: /help
+  - text: Désolé, je ne vous ai pas compris, essayez de saisir autre chose. Pouvez-vous
+      reformuler ou consulter le menu?
+    buttons:
+    - title: Menu
+      payload: /help
+  - text: Désolé, je ne suis pas en mesure de traiter votre réponse. Pouvez-vous reformuler
+      ou consulter le menu?
+    buttons:
+    - title: Menu
+      payload: /help
+  - text: Je m'excuse, je ne suis pas en mesure de traiter votre réponse. Pouvez-vous
+      reformuler ou consulter le menu?
+    buttons:
+    - title: Menu
+      payload: /help
+  utter_unknown:
+  - text: Je ne saisis pas le sens de votre question
+  - text: ' Soyez plus explcite'
+  utter_inscription_info:
+  - text: Voici les etapes mentionnees
+    custom:
+      payload: collapsible
+      data:
+      - title: Etape 1
+        description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+          do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        image: D:\Data-Science\Rasa\Chatbot\Final\Inscription\1-1.png
+      - title: Etape 2
+        description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+          do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        image: D:\Data-Science\Rasa\Chatbot\Final\Inscription\4.png
+      - title: Etape 3
+        description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+          do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        image: D:\Data-Science\Rasa\Chatbot\Final\Inscription\4-4-4.png
+  utter_other_faq:
+  - text: Que desirez vous?
+    buttons:
+    - title: Login
+      payload: /login
+    - title: Mot de passe
+      payload: /mdp
+    - title: Mail de confirmation
+      payload: /confirmMail
+    - title: Inscription
+      payload: /inscription{"path":"teledac", "inscrire":"inscrire"}
+  utter_menu_general:
+  - text: Que puis-je faire pour vous?
+    buttons:
+    - title: TéléDac
+      payload: /help
+    - title: Concours ENA
+      payload: /get_path{"path":"ena"}
+  utter_call_back:
+  - text: Que puisse faire pour vous encore?
+    buttons:
+    - title: Menu
+      payload: /help
+  utter_process_status:
+  - text: Nous avons besoins de vous identifier pour vous fournir cette information
+  utter_ask_prenom_nom:
+  - text: Merci de bien vouloir nous indiquer votre identité(prenom et nom en occurence)
+  utter_ask_num_dossier:
+  - text: Pour connaitre la situaton d'un dossier, svp indiquer nous le numéro du
+      dossier en question
+  utter_ask_email:
+  - text: De même, votre email est nécessaire pour cette opération
+  utter_ask_num_tel:
+  - text: Une dernière information de plus; votre numéro de téléphone
+  utter_ask_continue:
+  - text: Etes-vous sure de vouloir continuer?
+  utter_concours:
+  - text: Que puis-je faire pour vous?
+    buttons:
+    - title: Concours Direct A
+      payload: '/get_concours_all{"concoursAll": "direct a"}'
+    - title: Concours Direct B
+      payload: '/get_concours_all{"concoursAll": "direct b"}'
+    - title: Concours Professionel A
+      payload: '/get_concours_all{"concoursAll": "professionnel a"}'
+    - title: Concours Professionel B
+      payload: '/get_concours_all{"concoursAll": "professionnel b"}'
+  utter_concoursDA:
+  - text: Voici les informations relatives au concours Direct A
+    custom:
+      payload: dropdown
+      data:
+      - title: Conditions d'accés
+        description: Le concours direct du Cycle A est ouvert aux candidats :<br/>
+          <b>1.</b>Titulaires au moins d’un diplôme de maîtrise ou d’un diplôme classé
+          au moins à la hiérarchie A3 par le Ministre chargé de la Fonction publique<br/><br/>
+          <b>2.</b>et âgés de 18 ans au moins et de 33 ans au plus au 1er janvier
+          de l’année du concours,sans préjudice des conditions d’âge.
+      - title: Inscription
+        description: Si vous disposer déja d'un compte, clickez sur l'image. Sinon
+          procédez à la création de compte.
+        image: C:\Users\LENOVO\PycharmProjects\Chatwork\gif\Direct_A.gif
+      - title: Frais
+        description: Les frais de participation au concours s'élevent à <b>10000 Frs</b>  payable
+          en une seule fois<br/><br/> Le payement est assujeti à la validation de
+          l'inscription du candidat et à la reception du mail autorisant le payement
+          des dits frais condition sinequanon avant tout payement. Le numéro d’inscription
+          sur la plateforme sera présenté au moment du paiement des frais d’inscription<br/><br/>
+          <b>NB:</b>Le payement ne pourra être réalisé qu'avec la plateforme de transaction
+          Wari(points Wari )
+  utter_concoursDB:
+  - text: Voici les informations relatives au concours Direct B
+    custom:
+      payload: dropdown
+      data:
+      - title: Conditions d'accés
+        description: Le concours direct Cycle B est ouvert aux candidats :<br/> <b>1.</b>Titulaires
+          du baccalauréat,<br/><br/> <b>2.</b>âgés de 18 ans au moins et de 33 ans
+          au plus à la date d’ouverture du concours, sans préjudice des conditions
+          d’âge prévues par la loi n° 61-33 du 13 juin 1961 ou la loi n° 2011-88 du
+          30 mars 2011, selon le cas.
+      - title: Inscription
+        description: Si vous disposer déja d'un compte, cliquez sur l'image. Sinon
+          procédez à la création de compte.
+        image: C:\Users\LENOVO\PycharmProjects\Chatwork\gif\Direct_B.gif
+      - title: Frais
+        description: Les frais de participation au concours s'élevent à <b>5000 Frs</b>  payable
+          en une seule fois<br/><br/> Le payement est assujeti à la validation de
+          l'inscription du candidat et à la reception du mail autorisant le payement
+          des dits frais condition sinequanon avant tout payement. Le numéro d’inscription
+          sur la plateforme sera présenté au moment du paiement des frais d’inscription<br/><br/>
+          <b>NB:</b>Le payement ne pourra être réalisé qu'avec la plateforme de transaction
+          Wari(points Wari )
+  utter_concoursPA:
+  - text: Voici les informations relatives au concours Professionnel A
+    custom:
+      payload: dropdown
+      data:
+      - title: Conditions d'accés
+        description: 'Le concours professionnel du cycle A est ouvert: <br/><br/>
+          <b>1.</b> aux agents de l’Etat et des collectivités locales appartenant
+          à la hiérarchie B au moins ;<br/> <b>2.</b> aux agents de l’Etat membres
+          des forces armées, titulaires d’un diplôme classé au moins à la hiérarchie
+          B par le Ministre chargé de la Fonction publique ;<br/> <b>3.</b> aux agents
+          du secteur parapublic exerçant un emploi dont le diplôme requis pour y accéder
+          est reconnu et classé au moins à la hiérarchie B par le ministère chargé
+          de la Fonction publique.<br/><br/> <b>NB.</b> Les personnels susvisés doivent
+          être âgés de 53 ans au plus à la date d’ouverture du concours sans préjudice
+          de la condition d’âge prévue par le décret n° 69-179 du 18 février 1969'
+      - title: Inscription
+        description: Si vous disposer déja d'un compte, clickez sur l'image. Sinon
+          procédez à la création de compte.
+        image: C:\Users\LENOVO\PycharmProjects\Chatwork\gif\Profess_A.gif
+      - title: Frais
+        description: Les frais de participation au concours s'élevent à <b>10000 Frs</b>  payable
+          en une seule fois<br/><br/> Le payement est assujeti à la validation de
+          l'inscription du candidat et à la reception du mail autorisant le payement
+          des dits frais condition sinequanon avant tout payement. Le numéro d’inscription
+          sur la plateforme sera présenté au moment du paiement des frais d’inscription<br/><br/>
+          <b>NB:</b>Le payement ne pourra être réalisé qu'avec la plateforme de transaction
+          Wari(points Wari )
+  utter_concoursPB:
+  - text: Voici les informations relatives au concours Professionnel B
+    custom:
+      payload: dropdown
+      data:
+      - title: Conditions d'accés
+        description: 'Le concours professionnel du cycle B est ouvert: <br/><br/>
+          <b>1.</b> aux agents de l’Etat et des collectivités locales appartenant
+          à la hiérarchie B ou C ;<br/> <b>2.</b> aux membres des forces armées, titulaires
+          d’un diplôme classé à la hiérarchie B ou C par le Ministre chargé de la
+          Fonction publique ;<br/> <b>3.</b> aux agents non fonctionnaires de l’Etat,
+          des collectivités locales et du secteur parapublic tenant un emploi dont
+          le diplôme requis pour y accéder est classé à la hiérarchie B ou C par le
+          Ministère de Fonction publique.<br/><br/> <b>NB.</b> Les personnels susvisés
+          doivent être âgés de 53 ans au plus à la date d’ouverture du concours sans
+          préjudice de la condition d’âge prévue par le décret n° 69-179 du 18 février
+          1969'
+      - title: Inscription
+        description: Si vous disposer déja d'un compte, clickez sur l'image. Sinon
+          procédez à la création de compte.
+        image: C:\Users\LENOVO\PycharmProjects\Chatwork\gif\Profess_B.gif
+      - title: Frais
+        description: Les frais de participation au concours s'élevent à <b>10000 Frs</b>
+          payable en une seule fois<br/><br/> Le payement est assujeti à la validation
+          de l'inscription du candidat et à la reception du mail autorisant le payement
+          des dits frais condition sinequanon avant tout payement. Le numéro d’inscription
+          sur la plateforme sera présenté au moment du paiement des frais d’inscription<br/><br/>
+          <b>NB:</b>Le payement ne pourra être réalisé qu'avec la plateforme de transaction
+          Wari(points Wari )
+  utter_admis:
+  - text: les informations sur l'admissibilité et les admissions seront disponibles
+      une fois le paiement effectué.<br/> Que puis-je faire pour vous encore
+    buttons:
+    - title: Concours ENA
+      payload: /get_concours
+  uttter_inscriptionDA:
+  - text: Si vous disposer déja d'un compte, clickez sur l'image. Sinon procédez à
+      la création de compte. <a href="http://www.ena.sn/" target="blank">Clicker ici
+      pour s'inscrire</a>
+    image: C:\Users\LENOVO\PycharmProjects\Chatwork\gif\Direct_A.gif
+  uttter_inscriptionDB:
+  - text: Si vous disposer déja d'un compte, clickez sur l'image. Sinon procédez à
+      la création de compte. <a href="http://www.ena.sn/" target="blank">Clicker ici
+      pour s'inscrire</a>
+    image: C:\Users\LENOVO\PycharmProjects\Chatwork\gif\Direct_B.gif
+  uttter_inscriptionPA:
+  - text: Si vous disposer déja d'un compte, clickez sur l'image. Sinon procédez à
+      la création de compte. <a href="http://www.ena.sn/" target="blank">Clicker ici
+      pour s'inscrire</a>
+    image: C:\Users\LENOVO\PycharmProjects\Chatwork\gif\Profess_A.gif
+  uttter_inscriptionPB:
+  - text: Si vous disposer déja d'un compte, clickez sur l'image. Sinon procédez à
+      la création de compte. <a href="http://www.ena.sn/" target="blank">Clicker ici
+      pour s'inscrire</a>
+    image: C:\Users\LENOVO\PycharmProjects\Chatwork\gif\Profess_B.gif
+  utter_payDA:
+  - text: Les frais de participation au concours direct A s'élevent à <b>10000 Frs</b>  payable
+      en une seule fois.<br/>
+  utter_payDB:
+  - text: Les frais de participation au concours direct B s'élevent à <b>5000 Frs</b>  payable
+      en une seule fois.<br/>
+  utter_payPA:
+  - text: Les frais de participation au concours professionnel A s'élevent à <b>10000
+      Frs</b>  payable en une seule fois.<br/>
+  utter_payPB:
+  - text: Les frais de participation au concours professionnel B s'élevent à <b>10000
+      Frs</b>  payable en une seule fois.<br/>
+  utter_menu_inscription:
+  - text: 'Pour quelle plateforme voudriez-vous vous inscrire:'
+    buttons:
+    - title: TeleDAC
+      payload: /inscription{"path":"teledac", "inscrire":"inscrire"}
+    - title: ENA
+      payload: /menu_inscrire_ena
+  utter_incrire_ena:
+  - text: Pouvez-vous faire un choix?
+    buttons:
+    - title: Concours Direct A
+      payload: /inscription{"path":"ena", "inscrire":"inscrire", "concoursAll":"direct a"}
+    - title: Concours Direct B
+      payload: /inscription{"path":"ena", "inscrire":"inscrire", "concoursAll":"direct b"}
+    - title: Concours Professionel A
+      payload: /inscription{"path":"ena", "inscrire":"inscrire", "concoursAll":"professionnel a"}
+    - title: Concours Professionel B
+      payload: /inscription{"path":"ena", "inscrire":"inscrire", "concoursAll":"professionnel b"}
+  utter_pay_ena:
+  - text: Pouvez-vous faire un choix?
+    buttons:
+    - title: Concours Direct A
+      payload: /pay_concours{"pay":"frais", "path":"ena", "concoursAll":"direct a"}
+    - title: Concours Direct B
+      payload: /pay_concours{"pay":"frais", "path":"ena", "concoursAll":"direct b"}
+    - title: Concours Professionel A
+      payload: /pay_concours{"pay":"frais", "path":"ena", "concoursAll":"professionnel a"}
+    - title: Concours Professionel B
+      payload: /pay_concours{"pay":"frais", "path":"ena", "concoursAll":"professionnel b"}
+  utter_require_ena:
+  - text: Pouvez-vous faire un choix?
+    buttons:
+    - title: Concours Direct A
+      payload: /requirement_concours{"requirement":"conditions", "path":"ena", "concoursAll":"direct a"}
+    - title: Concours Direct B
+      payload: /requirement_concours{"requirement":"conditions", "path":"ena", "concoursAll":"direct b"}
+    - title: Concours Professionel A
+      payload: /requirement_concours{"requirement":"conditions", "path":"ena", "concoursAll":"professionnel a"}
+    - title: Concours Professionel B
+      payload: /requirement_concours{"requirement":"conditions", "path":"ena", "concoursAll":"professionnel b"}
+  utter_requireDA:
+  - text: Le concours direct du Cycle A est ouvert aux candidats :<br/> <b>-</b> Titulaires
+      au moins d’un diplôme de maîtrise ou d’un diplôme classé au moins à la hiérarchie
+      A3 par le Ministre chargé de la Fonction publique<br/><br/> <b>-</b> et âgés
+      de 18 ans au moins et de 33 ans au plus au 1er janvier de l’année du concours,sans
+      préjudice des conditions d’âge.
+  utter_requireDB:
+  - text: Le concours direct Cycle B est ouvert aux candidats :<br/> <b>-</b> Titulaires
+      du baccalauréat,<br/><br/> <b>-</b> âgés de 18 ans au moins et de 33 ans au
+      plus à la date d’ouverture du concours, sans préjudice des conditions d’âge
+      prévues par la loi n° 61-33 du 13 juin 1961 ou la loi n° 2011-88 du 30 mars
+      2011, selon le cas.
+  utter_requirePA:
+  - text: 'Le concours professionnel du cycle A est ouvert: <br/><br/> <b>-</b> aux
+      agents de l’Etat et des collectivités locales appartenant à la hiérarchie B
+      au moins ;<br/><br/> <b>-</b> aux agents de l’Etat membres des forces armées,
+      titulaires d’un diplôme classé au moins à la hiérarchie B par le Ministre chargé
+      de la Fonction publique ;<br/><br/> <b>-</b> aux agents du secteur parapublic
+      exerçant un emploi dont le diplôme requis pour y accéder est reconnu et classé
+      au moins à la hiérarchie B par le ministère chargé de la Fonction publique.'
+  utter_requirePB:
+  - text: 'Le concours professionnel du cycle B est ouvert: <br/><br/> <b>-</b> aux
+      agents de l’Etat et des collectivités locales appartenant à la hiérarchie B
+      ou C ;<br/><br/> <b>-</b> aux membres des forces armées, titulaires d’un diplôme
+      classé à la hiérarchie B ou C par le Ministre chargé de la Fonction publique
+      ;<br/><br/> <b>-</b> aux agents non fonctionnaires de l’Etat, des collectivités
+      locales et du secteur parapublic tenant un emploi dont le diplôme requis pour
+      y accéder est classé à la hiérarchie B ou C par le Ministère de Fonction publique.'
+  utter_profile_ena:
+  - text: Veillez suivre les étapes décrient dans l'image une fois connectée
+    image: D:\Data-Science\Rasa\Chatbot\Final\Profil\profile.PNG
+  utter_mdp_ena:
+  - text: En cas d'oubli de votre mot de passe pour le concours de l'ENA, faites une
+      demande de reinitialisation <a href="https://teledac.sec.gouv.sn/#/recup_password/saisir_email"
+      target="blank">Clicker ici</a>
+  utter_menu_profile:
+  - text: 'Pour quelle plateforme voudriez-vous vous effectuer des modifications:'
+    buttons:
+    - title: TeleDAC
+      payload: /profile{"path":"teledac", "modifie":"modifier", "profile":"profil"}
+    - title: ENA
+      payload: /profile{"path":"ena", "modifie":"modifier", "profile":"profil"}
+  utter_menu_mdp:
+  - text: 'Pour quelle plateforme voudriez-vous vous effectuer des modifications:'
+    buttons:
+    - title: TeleDAC
+      payload: /profile{"path":"teledac", "modifie":"modifier", "password":"mot de
+        passe"}
+    - title: ENA
+      payload: /profile{"path":"ena", "modifie":"modifier", "password":"mot de passe"}
+  utter_choice_plateform:
+  - text: Veuillez choisir pour quelle plateforme voudriez vous effectuer des modifications
+    buttons:
+    - title: TeleDAC
+      payload: /profile{"path":"teledac", "modifie":"modifier"}
+    - title: Ena
+      payload: /profile{"path":"ena", "modifie":"modifier"}
+  utter_choice_profil_teledac:
+  - text: veuillez faire un choix
+    buttons:
+    - title: Profil
+      payload: /profile{"path":"teledac", "modifie":"modifier", "profile":"profil"}
+    - title: Mot de passe
+      payload: /mdp{"path":"teledac", "modifie":"modifier", "password":"mot de passe"}
+  utter_choice_profil_ena:
+  - text: veuillez faire un choix
+    buttons:
+    - title: Profil
+      payload: /profile{"path":"ena", "modifie":"modifier", "profile":"profil"}
+    - title: Mot de passe
+      payload: /mdp{"path":"ena", "modifie":"modifier", "password":"mot de passe"}
+  utter_plateforme_connexion:
+  - text: Veuillez choisir pour quelle plateforme voudriez vous connecter
+    buttons:
+    - title: TeleDAC
+      payload: /connexion{"path":"teledac", "inscrire":"compte", "connexions":"connecter"}
+    - title: Ena
+      payload: /connexion{"path":"ena", "inscrire":"compte", "connexions":"connecter"}
+  utter_connexion_teledac:
+  - text: La connexion à Teledac requiert l'insertion du login et du mot de passe.
+      Pour vous connecter <a href="https://teledac.sec.gouv.sn/#/connexion/" target="blank">clicker
+      ici</a>
+  utter_connexion_ena:
+  - text: La connexion à ENA requiert l'insertion du login et du mot de passe. Pour
+      vous connecter <a href="https://teledac.sec.gouv.sn/#/connexion/" target="blank">clicker
+      ici</a>
+  utter_plateforme_mailconfirm:
+  - text: Veuillez choisir pour quelle plateforme voudriez vous traiter ce probléme
+    buttons:
+    - title: TeleDAC
+      payload: /confirmMail{"path":"teledac", "inscrire":"inscription", "mail":"mail
+        de confirmation"}
+    - title: Ena
+      payload: /confirmMail{"path":"ena", "inscrire":"inscription", "mail":"mail de
+        confirmation"}
+  utter_mail_teledac:
+  - text: ' Merci de vérifier dans vos spams, sinon demander un renvoi de mail de
+      confirmation.'
+  - text: Veuillez verifiez dans vos spams sinon demandez un nouvel envoi
+  - text: " Priez consulter votre messagerie electronique au cas demandez un nouvel\
+      \ envoi  ou bien dans le cas contraire jettez un coup d'oeil a vos spams"
+  utter_mail_ena:
+  - text: Pour le cas de l'ENA, veuillez consulter vos ou faites une nouvelle demande
+actions:
+- action_hello_world
+- my_fallback_action
+- utter_ask_confirmMail
+- utter_ask_connexion
+- utter_ask_continue
+- utter_ask_email
+- utter_ask_inscription
+- utter_ask_login
+- utter_ask_num_dossier
+- utter_ask_num_tel
+- utter_ask_passwd
+- utter_ask_prenom_nom
+- utter_ask_profile
+- utter_ask_rephrase
+- utter_call_back
+- utter_goodbye
+- utter_greet
+- utter_iamabot
+- utter_inscription_info
+- utter_other_faq
+- utter_process_status
+- respond_chat
+- action_inscription
+- utter_menu_general
+- action_require_concours
+- action_inscription_concours
+- action_pay_concours
+- action_depot_concours
+- action_concours
+- action_deny
+- action_affirm
+- utter_concours
+- utter_admis
+- utter_concoursDA
+- utter_concoursDB
+- utter_concoursPA
+- utter_concoursPB
+- action_concours_da
+- action_set_path
+- action_path
+- uttter_inscriptionDA
+- utter_incrire_ena
+- action_inscription_teledac
+- action_inscription_ena
+- action_inscription_check
+- uttter_inscriptionDB
+- uttter_inscriptionPA
+- uttter_inscriptionPB
+- utter_menu_inscription
+- utter_payDA
+- utter_payDB
+- utter_payPA
+- utter_payPB
+- action_pay
+- utter_pay_ena
+- utter_require_ena
+- utter_requireDA
+- utter_requireDB
+- utter_requirePA
+- utter_requirePB
+- action_require
+- action_inscription_ena_menu
+- utter_profile_ena
+- action_profile
+- utter_menu_profile
+- utter_choice_plateform
+- utter_choice_profil_teledac
+- utter_choice_profil_ena
+- action_choice_profile
+- utter_plateforme_connexion
+- utter_connexion_teledac
+- utter_connexion_ena
+- action_connexion
+- utter_mdp_ena
+- utter_menu_mdp
+- action_password
+- utter_plateforme_mailconfirm
+- utter_mail_teledac
+- utter_mail_ena
+- action_mail
+forms:
+- find_folder_form
